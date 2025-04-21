@@ -26,6 +26,28 @@ def count_words(string)
     return hash
 end
 
+class WrongNumberOfPlayersError < StandardError ; end
+class NoSuchStrategyError < StandardError ; end
+
+def rps_game_winner(game)
+    raise WrongNumberOfPlayersError unless game.length == 2
+    end
+
+    allowed_plays = ["P", "S", "R"].includes?(game[0][1].uppercase) and 
+        ["P", "S", "R"].includes?(game[1][1].uppercase)
+    raise NoSuchStrategyError unless allowed_plays
+    end
+
+    loses_for = {'P': 'S', 'S': 'R': 'R': 'P'}
+
+    if (loses_for[game[0][1]]==game[1][1])
+        return game[1]
+    else 
+        return game[0]
+    end    
+end
+
+
 # 1
 # A)
 puts(palindrome?("A man, a plan, a canal -- Panama")) 
@@ -38,3 +60,5 @@ puts(palindrome?("fluminense"))
 # B)
 puts(count_words("A man, a plan, a canal -- Panama"))
 puts(count_words("Doo bee doo bee doo"))
+
+
