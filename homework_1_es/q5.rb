@@ -5,15 +5,15 @@ class Class
    attr_reader attr_name 
    attr_reader attr_name+"_history"
    class_eval %Q{
-      def #{attr_name}=(attr_name)
-        @#{attr_name} =  attr_name
+      def #{attr_name}=(attr_value)
+        @#{attr_name} =  attr_value
 
         if !@#{attr_name}_history
           @#{attr_name}_history = []
           @#{attr_name}_history.append(nil)
-          @#{attr_name}_history.append(attr_name)
+          @#{attr_name}_history.append(attr_value)
         else
-          @#{attr_name}_history.append(attr_name)
+          @#{attr_name}_history.append(attr_value)
         end
       end
    }
