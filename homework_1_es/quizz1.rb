@@ -25,6 +25,7 @@ def print_sorted(entries)
     puts "#{entry[0]}\t#{entry[1]}"
   end
 end
+
 sort_by = ARGV[0] || "n"
 
 case sort_by.downcase

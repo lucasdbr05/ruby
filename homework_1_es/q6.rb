@@ -23,7 +23,7 @@ class Numeric
   end
 
   def in(method_id)
-    singular_currency = method_id.to_s.gsub(/s$/,'') # or .chomp('s') altho would that cut an s out of anywhere??
+    singular_currency = method_id.to_s.gsub(/s$/,'') 
     if @@currencies.has_key?(singular_currency)
       self * (1/@@currencies[singular_currency])
     else
